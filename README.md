@@ -1,63 +1,53 @@
-# [phpfmt](https://github.com/nanch/phpfmt_stable) support for Sublime Text 3
+# phpfmt
 
-## Installation
+The **phpfmt** project was busted and development got stagnated sine 2016. This is a fork aimed at continuing the development of **phpfmt**.
 
-#### Requirements
-- **You must have a running copy of PHP on the machine you are running Sublime Text**
+## What Is It ?
 
-Plugin runs with PHP 7.0 or newer installed in the machine running the plugin.
+**phpfmt** formats PHP code by making it readable and following a specific coding guideline.
 
-#### Install this plugin through Package Manager.
+## Requires
 
-- In Sublime Text press `ctrl+shift+P`
-- Choose `Package Control: Install Package`
-- Choose `phpfmt`
+* PHP 7.0 or newer
 
-#### Configuration (Windows)
+## Usage
 
-- Edit configuration file (`%AppData%\Sublime Text\Packages\phpfmt\phpfmt.sublime-settings`)
-- For field `"php_bin"` enter the path to the php.exe
-  Example: `"php_bin":"c:/PHP/php.exe"`
-
-#### Configuration (OS X and Linux)
-
-- Edit configuration file (`phpfmt.sublime-settings`)
-- For field `"php_bin"` enter the path to the php
-  Example: `"php_bin":"/usr/local/bin/php"`
-
-### Settings
-
-Prefer using the toggle options at command palette. However you might find yourself in need to setup where PHP is running, use this option below for the configuration file.
 ```
-{
-"php_bin":"/usr/local/bin/php",
-}
+php phpfmt.phar <arguments>
 ```
 
-**The following features are available through command palette (`ctrl+shift+P` or `cmd+shift+P`) :**
+## Arguments
 
- *  phpfmt: format now
- *  phpfmt: indentation with spaces
- *  phpfmt: toggle additional transformations
- *  phpfmt: toggle excluded transformations
- *  phpfmt: toggle skip execution when .php.tools.ini is missing
- *  phpfmt: toggle autocomplete
- *  phpfmt: toggle dependency autoimport
- *  phpfmt: toggle format on save
- *  phpfmt: toggle PSR1 - Class and Methods names
- *  phpfmt: toggle PSR1
- *  phpfmt: toggle PSR2
- *  phpfmt: analyse this
- *  phpfmt: build autocomplete database
- *  phpfmt: getter and setter (camelCase)
- *  phpfmt: getter and setter (Go)
- *  phpfmt: getter and setter (snake_case)
- *  phpfmt: generate PHPDoc block
- *  phpfmt: look for .php.tools.ini
- *  phpfmt: reorganize content of class
- *  phpfmt: enable/disable additional transformations
- *  phpfmt: troubleshoot information
- *  phpfmt: update PHP binary path
+| Argument | Description |
+| -------- | ----------- |
+| --cache[=FILENAME] | cache file. Default: .php.tools.cache |
+| --cakephp | Apply CakePHP coding style |
+| --config=FILENAME | configuration file. Default: .phpfmt.ini |
+| --constructor=type | analyse classes for attributes and generate constructor - camel, snake, golang |
+| --dry-run | Runs the formatter without atually changing files; returns exit code 1 if changes would have been applied |
+| --enable_auto_align | disable auto align of ST_EQUAL and T_DOUBLE_ARROW |
+| --exclude=pass1,passN,... | disable specific passes |
+| --help-pass | show specific information for one pass |
+| --ignore=PATTERN-1,PATTERN-N,... | ignore file names whose names contain any PATTERN-N |
+| --indent_with_space=SIZE | use spaces instead of tabs for indentation. Default 4 |
+| --lint-before | lint files before pretty printing (PHP must be declared in %PATH%/$PATH) |
+| --list | list possible transformations |
+| --list-simple | list possible transformations - greppable |
+| --no-backup | no backup file (original.php~) |
+| --passes=pass1,passN,... | call specific compiler pass |
+| --profile=NAME | use one of profiles present in configuration file |
+| --psr | activate PSR1 and PSR2 styles |
+| --psr1 | activate PSR1 style |
+| --psr1-naming | activate PSR1 style - Section 3 and 4.3 - Class and method names case. |
+| --psr2 | activate PSR2 style |
+| --setters_and_getters=type | analyse classes for attributes and generate setters and getters - camel, snake, golang |
+| --smart_linebreak_after_curly | convert multistatement blocks into multiline blocks |
+| --visibility_order | fixes visibiliy order for method in classes - PSR-2 4.2 |
+| --yoda | yoda-style comparisons |
+| -h, --help | this help message |
+| -o=- | output the formatted code to standard output |
+| -o=file | output the formatted code to "file" |
+| -v | verbose |
 
 
 ### Currently Supported Transformations:
@@ -115,6 +105,7 @@ Prefer using the toggle options at command palette. However you might find yours
  * SortUseNameSpace                  Organize use clauses by length and alphabetic order.
  * SpaceAroundControlStructures      Add space around control structures.
  * SpaceAroundExclamationMark        Add spaces around exclamation mark.
+ * SpaceAroundParentheses            Add spaces inside parentheses.
  * SpaceBetweenMethods               Put space between methods.
  * StrictBehavior                    Activate strict option in array_search, base64_decode, in_array, array_keys, mb_detect_encoding. Danger! This pass leads to behavior change.
  * StrictComparison                  All comparisons are converted to strict. Danger! This pass leads to behavior change.
@@ -130,176 +121,3 @@ Prefer using the toggle options at command palette. However you might find yours
  * WordWrap                          Word wrap at 80 columns.
  * WrongConstructorName              Update old constructor names into new ones. http://php.net/manual/en/language.oop5.decon.php
  * YodaComparisons                   Execute Yoda Comparisons.
-
-### What does it do?
-
-<table>
-<tr>
-<td>Before</td>
-<td>After</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-for($i = 0; $i &lt; 10; $i++)
-{
-if($i%2==0)
-echo "Flipflop";
-}
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-for ($i = 0; $i &lt; 10; $i++) {
-  if ($i%2 == 0) {
-    echo "Flipflop";
-  }
-}
-</code></pre>
-</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-$a = 10;
-$otherVar = 20;
-$third = 30;
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-$a        = 10;
-$otherVar = 20;
-$third    = 30;
-</code></pre>
-<i>This can be enabled with the option "enable_auto_align"</i>
-</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-namespace NS\Something;
-use \OtherNS\C;
-use \OtherNS\B;
-use \OtherNS\A;
-use \OtherNS\D;
-
-$a = new A();
-$b = new C();
-$d = new D();
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-namespace NS\Something;
-
-use \OtherNS\A;
-use \OtherNS\C;
-use \OtherNS\D;
-
-$a = new A();
-$b = new C();
-$d = new D();
-</code></pre>
-<i>note how it sorts the use clauses, and removes unused ones</i>
-</td>
-</tr>
-</table>
-
-### What does it do? - PSR version
-
-<table>
-<tr>
-<td>Before</td>
-<td>After</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-for($i = 0; $i &lt; 10; $i++)
-{
-if($i%2==0)
-echo "Flipflop";
-}
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-for ($i = 0; $i &lt; 10; $i++) {
-    if ($i%2 == 0) {
-        echo "Flipflop";
-    }
-}
-</code></pre>
-<i>Note the identation of 4 spaces.</i>
-</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-class A {
-function a(){
-return 10;
-}
-}
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-class A
-{
-    public function a()
-    {
-        return 10;
-    }
-}
-</code></pre>
-<i>Note the braces position, and the visibility adjustment in the method a().</i>
-</td>
-</tr>
-<tr>
-<td>
-<pre><code>&lt;?php
-namespace NS\Something;
-use \OtherNS\C;
-use \OtherNS\B;
-use \OtherNS\A;
-use \OtherNS\D;
-
-$a = new A();
-$b = new C();
-$d = new D();
-</code></pre>
-</td>
-<td>
-<pre><code>&lt;?php
-namespace NS\Something;
-
-use \OtherNS\A;
-use \OtherNS\C;
-use \OtherNS\D;
-
-$a = new A();
-$b = new C();
-$d = new D();
-</code></pre>
-<i>note how it sorts the use clauses, and removes unused ones</i>
-</td>
-</tr>
-</table>
-
-### Troubleshooting
-- Be sure you can run PHP from the command line.
-- If you need support, please open an issue at [fmt issues](https://github.com/nanch/phpfmt_stable/issues)
-
-### The Most FAQ
-
-***I want to use sublime-phpfmt, but it needs PHP 5.6 or newer and on my production
-server I have PHP 5.5 or older. What should I do?***
-
-Consider installing a standalone PHP 5.6 in a separate directory and have it *not*
-configured in the environment. Within the plugin, ensure `php_bin` parameter is pointed to this standalone installation.
-
-### Acknowledgements
-- GoSublime - for the method to update the formatted buffer
-- Google's diff match patch - http://code.google.com/p/google-diff-match-patch/
