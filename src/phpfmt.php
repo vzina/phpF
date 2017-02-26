@@ -13109,6 +13109,7 @@ EOT;
 			$options['--version']    = 'version';
 		}
 		$options['--cache[=FILENAME]'] .= ( Cacher::DEFAULT_CACHE_FILENAME );
+
 		ksort( $options );
 
 		return $options;
@@ -13117,9 +13118,13 @@ EOT;
 	if (  ! isset( $testEnv ) ) {
 
 		function showHelp( $argv, $enableCache, $inPhar ) {
-			$options = getOptions();
+			$options = getOptions( $inPhar );
 
 			echo 'Usage: ' . $argv[0] . ' [-hv] [-o=FILENAME] [--config=FILENAME] ' . ( $enableCache ? '[--cache[=FILENAME]] ' : '' ) . '[options] <target>', PHP_EOL;
+
+			if ( ! $enableCache ) {
+				unset( $options['--cache[=FILENAME]'] );
+			}
 
 			$maxLen = max( array_map( function ( $v ) {
 				return strlen( $v );
