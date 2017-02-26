@@ -89,7 +89,7 @@ namespace Symfony\Component\Console\Helper {
 				array( 86400, 'hrs', 3600 ),
 				array( 129600, '1 day' ),
 				array( 604800, 'days', 86400 ),
-			 );
+			);
 
 			foreach ( $timeFormats as $format ) {
 				if ( $secs >= $format[0] ) {
@@ -218,34 +218,34 @@ namespace Symfony\Component\Console\Formatter {
 
 	class OutputFormatterStyle implements OutputFormatterStyleInterface {
 		private static $availableForegroundColors = array(
-			'black' => array( 'set' => 30, 'unset' => 39 ),
-			'red' => array( 'set' => 31, 'unset' => 39 ),
-			'green' => array( 'set' => 32, 'unset' => 39 ),
-			'yellow' => array( 'set' => 33, 'unset' => 39 ),
-			'blue' => array( 'set' => 34, 'unset' => 39 ),
+			'black'   => array( 'set' => 30, 'unset' => 39 ),
+			'red'     => array( 'set' => 31, 'unset' => 39 ),
+			'green'   => array( 'set' => 32, 'unset' => 39 ),
+			'yellow'  => array( 'set' => 33, 'unset' => 39 ),
+			'blue'    => array( 'set' => 34, 'unset' => 39 ),
 			'magenta' => array( 'set' => 35, 'unset' => 39 ),
-			'cyan' => array( 'set' => 36, 'unset' => 39 ),
-			'white' => array( 'set' => 37, 'unset' => 39 ),
+			'cyan'    => array( 'set' => 36, 'unset' => 39 ),
+			'white'   => array( 'set' => 37, 'unset' => 39 ),
 			'default' => array( 'set' => 39, 'unset' => 39 ),
-		 );
+		);
 		private static $availableBackgroundColors = array(
-			'black' => array( 'set' => 40, 'unset' => 49 ),
-			'red' => array( 'set' => 41, 'unset' => 49 ),
-			'green' => array( 'set' => 42, 'unset' => 49 ),
-			'yellow' => array( 'set' => 43, 'unset' => 49 ),
-			'blue' => array( 'set' => 44, 'unset' => 49 ),
+			'black'   => array( 'set' => 40, 'unset' => 49 ),
+			'red'     => array( 'set' => 41, 'unset' => 49 ),
+			'green'   => array( 'set' => 42, 'unset' => 49 ),
+			'yellow'  => array( 'set' => 43, 'unset' => 49 ),
+			'blue'    => array( 'set' => 44, 'unset' => 49 ),
 			'magenta' => array( 'set' => 45, 'unset' => 49 ),
-			'cyan' => array( 'set' => 46, 'unset' => 49 ),
-			'white' => array( 'set' => 47, 'unset' => 49 ),
+			'cyan'    => array( 'set' => 46, 'unset' => 49 ),
+			'white'   => array( 'set' => 47, 'unset' => 49 ),
 			'default' => array( 'set' => 49, 'unset' => 49 ),
-		 );
+		);
 		private static $availableOptions = array(
-			'bold' => array( 'set' => 1, 'unset' => 22 ),
+			'bold'       => array( 'set' => 1, 'unset' => 22 ),
 			'underscore' => array( 'set' => 4, 'unset' => 24 ),
-			'blink' => array( 'set' => 5, 'unset' => 25 ),
-			'reverse' => array( 'set' => 7, 'unset' => 27 ),
-			'conceal' => array( 'set' => 8, 'unset' => 28 ),
-		 );
+			'blink'      => array( 'set' => 5, 'unset' => 25 ),
+			'reverse'    => array( 'set' => 7, 'unset' => 27 ),
+			'conceal'    => array( 'set' => 8, 'unset' => 28 ),
+		);
 
 		private $foreground;
 		private $background;
@@ -275,7 +275,7 @@ namespace Symfony\Component\Console\Formatter {
 					'Invalid foreground color specified: "%s". Expected one of (%s)',
 					$color,
 					implode( ', ', array_keys( static::$availableForegroundColors ) )
-				 ) );
+				) );
 			}
 
 			$this->foreground = static::$availableForegroundColors[$color];
@@ -293,7 +293,7 @@ namespace Symfony\Component\Console\Formatter {
 					'Invalid background color specified: "%s". Expected one of (%s)',
 					$color,
 					implode( ', ', array_keys( static::$availableBackgroundColors ) )
-				 ) );
+				) );
 			}
 
 			$this->background = static::$availableBackgroundColors[$color];
@@ -305,7 +305,7 @@ namespace Symfony\Component\Console\Formatter {
 					'Invalid option specified: "%s". Expected one of (%s)',
 					$option,
 					implode( ', ', array_keys( static::$availableOptions ) )
-				 ) );
+				) );
 			}
 
 			if (  ! in_array( static::$availableOptions[$option], $this->options ) ) {
@@ -319,7 +319,7 @@ namespace Symfony\Component\Console\Formatter {
 					'Invalid option specified: "%s". Expected one of (%s)',
 					$option,
 					implode( ', ', array_keys( static::$availableOptions ) )
-				 ) );
+				) );
 			}
 
 			$pos = array_search( static::$availableOptions[$option], $this->options );
@@ -1039,7 +1039,7 @@ namespace Symfony\Component\Console\Helper {
 
 					return $display;
 				},
-				'elapsed' => function ( ProgressBar $bar ) {
+				'elapsed'   => function ( ProgressBar $bar ) {
 					return Helper::formatTime( time() - $bar->getStartTime() );
 				},
 				'remaining' => function ( ProgressBar $bar ) {
@@ -1050,7 +1050,7 @@ namespace Symfony\Component\Console\Helper {
 					if (  ! $bar->getProgress() ) {
 						$remaining = 0;
 					} else {
-						$remaining = round( ( time() - $bar->getStartTime() ) / $bar->getProgress() * ( $bar->getMaxSteps() - $bar->getProgress() ) );
+						$remaining = round(  ( time() - $bar->getStartTime() ) / $bar->getProgress() * ( $bar->getMaxSteps() - $bar->getProgress() ) );
 					}
 
 					return Helper::formatTime( $remaining );
@@ -1063,40 +1063,40 @@ namespace Symfony\Component\Console\Helper {
 					if (  ! $bar->getProgress() ) {
 						$estimated = 0;
 					} else {
-						$estimated = round( ( time() - $bar->getStartTime() ) / $bar->getProgress() * $bar->getMaxSteps() );
+						$estimated = round(  ( time() - $bar->getStartTime() ) / $bar->getProgress() * $bar->getMaxSteps() );
 					}
 
 					return Helper::formatTime( $estimated );
 				},
-				'memory' => function ( ProgressBar $bar ) {
+				'memory'  => function ( ProgressBar $bar ) {
 					return Helper::formatMemory( memory_get_usage( true ) );
 				},
 				'current' => function ( ProgressBar $bar ) {
 					return str_pad( $bar->getProgress(), $bar->getStepWidth(), ' ', STR_PAD_LEFT );
 				},
-				'max' => function ( ProgressBar $bar ) {
+				'max'     => function ( ProgressBar $bar ) {
 					return $bar->getMaxSteps();
 				},
 				'percent' => function ( ProgressBar $bar ) {
 					return floor( $bar->getProgressPercent() * 100 );
 				},
-			 );
+			);
 		}
 
 		private static function initFormats() {
 			return array(
-				'normal' => ' %current%/%max% [%bar%] %percent:3s%%',
+				'normal'       => ' %current%/%max% [%bar%] %percent:3s%%',
 				'normal_nomax' => ' %current% [%bar%]',
 
-				'verbose' => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%',
+				'verbose'       => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%',
 				'verbose_nomax' => ' %current% [%bar%] %elapsed:6s%',
 
-				'very_verbose' => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s%',
+				'very_verbose'       => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s%',
 				'very_verbose_nomax' => ' %current% [%bar%] %elapsed:6s%',
 
-				'debug' => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%',
+				'debug'       => ' %current%/%max% [%bar%] %percent:3s%% %elapsed:6s%/%estimated:-6s% %memory:6s%',
 				'debug_nomax' => ' %current% [%bar%] %elapsed:6s% %memory:6s%',
-			 );
+			);
 		}
 	}
 
@@ -1418,8 +1418,8 @@ namespace {
 				function ( $v ) use ( $item ) {
 					return substr( $v, 0, strlen( '--' . $item ) ) !== '--' . $item;
 				}
-			 )
-		 );
+			)
+		);
 	}
 
 	function extractFromArgvShort( $argv, $item ) {
@@ -1428,8 +1428,8 @@ namespace {
 				function ( $v ) use ( $item ) {
 					return substr( $v, 0, strlen( '-' . $item ) ) !== '-' . $item;
 				}
-			 )
-		 );
+			)
+		);
 	}
 
 	function lint( $file ) {
@@ -1962,7 +1962,7 @@ namespace {
 						$ptr,
 						ST_CURLY_OPEN,
 						$this->ignoreFutileTokens
-					 ) ) {
+					) ) {
 						$this->refWalkUsefulUntil( $tkns, $ptr, ST_CURLY_OPEN );
 						$this->refWalkCurlyBlock( $tkns, $ptr );
 
@@ -1988,8 +1988,8 @@ namespace {
 							$ptr,
 							T_CATCH,
 							$this->ignoreFutileTokens
-						 )
-					 ) {
+						)
+					) {
 						$this->refWalkUsefulUntil( $tkns, $ptr, ST_PARENTHESES_OPEN );
 						$this->refWalkBlock( $tkns, $ptr, ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE );
 						$this->refWalkUsefulUntil( $tkns, $ptr, ST_CURLY_OPEN );
@@ -2000,7 +2000,7 @@ namespace {
 						$ptr,
 						T_FINALLY,
 						$this->ignoreFutileTokens
-					 ) ) {
+					) ) {
 						$this->refWalkUsefulUntil( $tkns, $ptr, T_FINALLY );
 						$this->refWalkUsefulUntil( $tkns, $ptr, ST_CURLY_OPEN );
 						$this->refWalkCurlyBlock( $tkns, $ptr );
@@ -2021,8 +2021,8 @@ namespace {
 								$ptr,
 								T_ELSEIF,
 								$this->ignoreFutileTokens
-							 )
-						 ) {
+							)
+						) {
 							$this->refWalkUsefulUntil( $tkns, $ptr, ST_PARENTHESES_OPEN );
 							$this->refWalkBlock( $tkns, $ptr, ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE );
 							$this->refWalkUsefulUntil( $tkns, $ptr, ST_CURLY_OPEN );
@@ -2034,8 +2034,8 @@ namespace {
 								$ptr,
 								T_ELSE,
 								$this->ignoreFutileTokens
-							 )
-						 ) {
+							)
+						) {
 							$this->refWalkUsefulUntil( $tkns, $ptr, ST_CURLY_OPEN );
 							$this->refWalkCurlyBlock( $tkns, $ptr );
 							break;
@@ -2050,7 +2050,7 @@ namespace {
 					ST_CURLY_OPEN == $id ||
 					T_CURLY_OPEN == $id ||
 					T_DOLLAR_OPEN_CURLY_BRACES == $id
-				 ) {
+				) {
 					$this->refWalkCurlyBlock( $tkns, $ptr );
 					continue;
 				}
@@ -2539,131 +2539,131 @@ namespace {
 		protected $passes = [
 			'StripSpaces' => false,
 
-			'ReplaceBooleanAndOr' => false,
+			'ReplaceBooleanAndOr'           => false,
 			'EliminateDuplicatedEmptyLines' => false,
 
-			'RTrim' => false,
+			'RTrim'    => false,
 			'WordWrap' => false,
 
 			'ConvertOpenTagWithEcho' => false,
-			'RestoreComments' => false,
-			'UpgradeToPreg' => false,
-			'DocBlockToComment' => false,
-			'LongArray' => false,
+			'RestoreComments'        => false,
+			'UpgradeToPreg'          => false,
+			'DocBlockToComment'      => false,
+			'LongArray'              => false,
 
-			'StripExtraCommaInArray' => false,
+			'StripExtraCommaInArray'   => false,
 			'NoSpaceAfterPHPDocBlocks' => false,
-			'RemoveUseLeadingSlash' => false,
-			'ShortArray' => false,
-			'MergeElseIf' => false,
-			'SplitElseIf' => false,
-			'AutoPreincrement' => false,
-			'MildAutoPreincrement' => false,
+			'RemoveUseLeadingSlash'    => false,
+			'ShortArray'               => false,
+			'MergeElseIf'              => false,
+			'SplitElseIf'              => false,
+			'AutoPreincrement'         => false,
+			'MildAutoPreincrement'     => false,
 
 			'CakePHPStyle' => false,
 
 			'StripNewlineAfterClassOpen' => false,
 			'StripNewlineAfterCurlyOpen' => false,
 
-			'SortUseNameSpace' => false,
+			'SortUseNameSpace'           => false,
 			'SpaceAroundExclamationMark' => false,
-			'SpaceAroundParentheses' => true,
+			'SpaceAroundParentheses'     => false,
 
 			'TightConcat' => false,
 
-			'PSR2IndentWithSpace' => false,
-			'AlignPHPCode' => false,
-			'AllmanStyleBraces' => false,
+			'PSR2IndentWithSpace'       => false,
+			'AlignPHPCode'              => false,
+			'AllmanStyleBraces'         => false,
 			'NamespaceMergeWithOpenTag' => false,
 			'MergeNamespaceWithOpenTag' => false,
 
 			'LeftAlignComment' => false,
 
-			'PSR2AlignObjOp' => false,
-			'PSR2EmptyFunction' => false,
+			'PSR2AlignObjOp'                        => false,
+			'PSR2EmptyFunction'                     => false,
 			'PSR2SingleEmptyLineAndStripClosingTag' => false,
-			'PSR2ModifierVisibilityStaticOrder' => false,
-			'PSR2CurlyOpenNextLine' => false,
-			'PSR2LnAfterNamespace' => false,
-			'PSR2KeywordsLowerCase' => false,
+			'PSR2ModifierVisibilityStaticOrder'     => false,
+			'PSR2CurlyOpenNextLine'                 => false,
+			'PSR2LnAfterNamespace'                  => false,
+			'PSR2KeywordsLowerCase'                 => false,
 
 			'PSR1MethodNames' => false,
-			'PSR1ClassNames' => false,
+			'PSR1ClassNames'  => false,
 
 			'PSR1ClassConstants' => false,
-			'PSR1BOMMark' => false,
+			'PSR1BOMMark'        => false,
 
 			'EliminateDuplicatedEmptyLines' => false,
-			'IndentTernaryConditions' => false,
-			'ReindentComments' => false,
-			'ReindentEqual' => false,
-			'Reindent' => false,
-			'ReindentAndAlignObjOps' => false,
-			'ReindentObjOps' => false,
+			'IndentTernaryConditions'       => false,
+			'ReindentComments'              => false,
+			'ReindentEqual'                 => false,
+			'Reindent'                      => false,
+			'ReindentAndAlignObjOps'        => false,
+			'ReindentObjOps'                => false,
 
-			'AlignDoubleSlashComments' => false,
-			'AlignTypehint' => false,
-			'AlignGroupDoubleArrow' => false,
-			'AlignDoubleArrow' => false,
-			'AlignEquals' => false,
+			'AlignDoubleSlashComments'   => false,
+			'AlignTypehint'              => false,
+			'AlignGroupDoubleArrow'      => false,
+			'AlignDoubleArrow'           => false,
+			'AlignEquals'                => false,
 			'AlignConstVisibilityEquals' => false,
 
 			'ReindentSwitchBlocks' => false,
-			'ReindentColonBlocks' => false,
+			'ReindentColonBlocks'  => false,
 
 			'SplitCurlyCloseAndTokens' => false,
-			'ResizeSpaces' => false,
+			'ResizeSpaces'             => false,
 
 			'StripSpaceWithinControlStructures' => false,
 
 			'StripExtraCommaInList' => false,
-			'YodaComparisons' => false,
+			'YodaComparisons'       => false,
 
-			'MergeDoubleArrowAndArray' => false,
-			'MergeCurlyCloseAndDoWhile' => false,
+			'MergeDoubleArrowAndArray'     => false,
+			'MergeCurlyCloseAndDoWhile'    => false,
 			'MergeParenCloseWithCurlyOpen' => false,
-			'NormalizeLnAndLtrimLines' => false,
-			'ExtraCommaInArray' => false,
-			'SmartLnAfterCurlyOpen' => false,
-			'AddMissingCurlyBraces' => false,
-			'OnlyOrderUseClauses' => false,
-			'OrderAndRemoveUseClauses' => false,
-			'AutoImportPass' => false,
-			'ConstructorPass' => false,
-			'SettersAndGettersPass' => false,
-			'NormalizeIsNotEquals' => false,
-			'RemoveIncludeParentheses' => false,
-			'TwoCommandsInSameLine' => false,
+			'NormalizeLnAndLtrimLines'     => false,
+			'ExtraCommaInArray'            => false,
+			'SmartLnAfterCurlyOpen'        => false,
+			'AddMissingCurlyBraces'        => false,
+			'OnlyOrderUseClauses'          => false,
+			'OrderAndRemoveUseClauses'     => false,
+			'AutoImportPass'               => false,
+			'ConstructorPass'              => false,
+			'SettersAndGettersPass'        => false,
+			'NormalizeIsNotEquals'         => false,
+			'RemoveIncludeParentheses'     => false,
+			'TwoCommandsInSameLine'        => false,
 
-			'SpaceBetweenMethods' => false,
-			'GeneratePHPDoc' => false,
-			'ReturnNull' => false,
-			'AddMissingParentheses' => false,
-			'WrongConstructorName' => false,
-			'JoinToImplode' => false,
-			'EncapsulateNamespaces' => false,
-			'PrettyPrintDocBlocks' => false,
-			'StrictBehavior' => false,
-			'StrictComparison' => false,
-			'ReplaceIsNull' => false,
-			'DoubleToSingleQuote' => false,
-			'LeftWordWrap' => false,
-			'ClassToSelf' => false,
-			'ClassToStatic' => false,
-			'PSR2MultilineFunctionParams' => false,
+			'SpaceBetweenMethods'          => false,
+			'GeneratePHPDoc'               => false,
+			'ReturnNull'                   => false,
+			'AddMissingParentheses'        => false,
+			'WrongConstructorName'         => false,
+			'JoinToImplode'                => false,
+			'EncapsulateNamespaces'        => false,
+			'PrettyPrintDocBlocks'         => false,
+			'StrictBehavior'               => false,
+			'StrictComparison'             => false,
+			'ReplaceIsNull'                => false,
+			'DoubleToSingleQuote'          => false,
+			'LeftWordWrap'                 => false,
+			'ClassToSelf'                  => false,
+			'ClassToStatic'                => false,
+			'PSR2MultilineFunctionParams'  => false,
 			'SpaceAroundControlStructures' => false,
 
-			'OrderMethodAndVisibility' => false,
-			'OrderMethod' => false,
-			'OrganizeClass' => false,
-			'AutoSemicolon' => false,
-			'PSR1OpenTags' => false,
+			'OrderMethodAndVisibility'      => false,
+			'OrderMethod'                   => false,
+			'OrganizeClass'                 => false,
+			'AutoSemicolon'                 => false,
+			'PSR1OpenTags'                  => false,
 			'PHPDocTypesToFunctionTypehint' => false,
-			'RemoveSemicolonAfterCurly' => false,
-			'NewLineBeforeReturn' => false,
-			'EchoToPrint' => false,
-			'TrimSpaceBeforeSemicolon' => false,
-			'StripNewlineWithinClassBody' => false,
+			'RemoveSemicolonAfterCurly'     => false,
+			'NewLineBeforeReturn'           => false,
+			'EchoToPrint'                   => false,
+			'TrimSpaceBeforeSemicolon'      => false,
+			'StripNewlineWithinClassBody'   => false,
 		];
 
 		private $hasAfterExecutedPass = false;
@@ -2675,27 +2675,27 @@ namespace {
 		private $hasBeforePass = false;
 
 		private $shortcircuit = [
-			'AlignDoubleArrow' => ['AlignGroupDoubleArrow'],
-			'AlignGroupDoubleArrow' => ['AlignDoubleArrow'],
-			'AllmanStyleBraces' => ['PSR2CurlyOpenNextLine'],
-			'OnlyOrderUseClauses' => ['OrderAndRemoveUseClauses'],
+			'AlignDoubleArrow'         => ['AlignGroupDoubleArrow'],
+			'AlignGroupDoubleArrow'    => ['AlignDoubleArrow'],
+			'AllmanStyleBraces'        => ['PSR2CurlyOpenNextLine'],
+			'OnlyOrderUseClauses'      => ['OrderAndRemoveUseClauses'],
 			'OrderAndRemoveUseClauses' => ['OnlyOrderUseClauses'],
-			'OrganizeClass' => ['ReindentComments', 'RestoreComments'],
-			'ReindentAndAlignObjOps' => ['ReindentObjOps'],
-			'ReindentComments' => ['OrganizeClass', 'RestoreComments'],
-			'ReindentObjOps' => ['ReindentAndAlignObjOps'],
-			'RestoreComments' => ['OrganizeClass', 'ReindentComments'],
+			'OrganizeClass'            => ['ReindentComments', 'RestoreComments'],
+			'ReindentAndAlignObjOps'   => ['ReindentObjOps'],
+			'ReindentComments'         => ['OrganizeClass', 'RestoreComments'],
+			'ReindentObjOps'           => ['ReindentAndAlignObjOps'],
+			'RestoreComments'          => ['OrganizeClass', 'ReindentComments'],
 
-			'PSR1OpenTags' => ['ReindentComments'],
-			'PSR1BOMMark' => ['ReindentComments'],
-			'PSR1ClassConstants' => ['ReindentComments'],
-			'PSR1ClassNames' => ['ReindentComments'],
-			'PSR1MethodNames' => ['ReindentComments'],
-			'PSR2KeywordsLowerCase' => ['ReindentComments'],
-			'PSR2IndentWithSpace' => ['ReindentComments'],
-			'PSR2LnAfterNamespace' => ['ReindentComments'],
-			'PSR2CurlyOpenNextLine' => ['ReindentComments'],
-			'PSR2ModifierVisibilityStaticOrder' => ['ReindentComments'],
+			'PSR1OpenTags'                          => ['ReindentComments'],
+			'PSR1BOMMark'                           => ['ReindentComments'],
+			'PSR1ClassConstants'                    => ['ReindentComments'],
+			'PSR1ClassNames'                        => ['ReindentComments'],
+			'PSR1MethodNames'                       => ['ReindentComments'],
+			'PSR2KeywordsLowerCase'                 => ['ReindentComments'],
+			'PSR2IndentWithSpace'                   => ['ReindentComments'],
+			'PSR2LnAfterNamespace'                  => ['ReindentComments'],
+			'PSR2CurlyOpenNextLine'                 => ['ReindentComments'],
+			'PSR2ModifierVisibilityStaticOrder'     => ['ReindentComments'],
 			'PSR2SingleEmptyLineAndStripClosingTag' => ['ReindentComments'],
 		];
 
@@ -2777,10 +2777,10 @@ namespace {
 					return clone $pass;
 				},
 				array_filter( $this->passes )
-			 );
+			);
 			list( $foundTokens, $commentStack ) = $this->getFoundTokens( $source );
 			$this->hasBeforeFormat && $this->beforeFormat( $source );
-			while ( ( $pass = array_pop( $passes ) ) ) {
+			while (  ( $pass = array_pop( $passes ) ) ) {
 				$this->hasBeforePass && $this->beforePass( $source, $pass );
 				if ( $pass->candidate( $source, $foundTokens ) ) {
 					if ( isset( $pass->commentStack ) ) {
@@ -2888,7 +2888,7 @@ namespace {
 				isset( $foundTokens[T_FOREACH] ) ||
 				isset( $foundTokens[T_ELSEIF] ) ||
 				isset( $foundTokens[T_IF] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -2934,7 +2934,7 @@ namespace {
 					if (
 						( $hasCurlyOnLeft && $this->rightTokenSubsetIsAtIdx( $this->tkns, $this->ptr, [ST_SEMI_COLON], $this->ignoreFutileTokens ) ) ||
 						$this->rightTokenSubsetIsAtIdx( $this->tkns, $this->ptr, [ST_CURLY_OPEN, ST_COLON, ST_SEMI_COLON], $this->ignoreFutileTokens )
-					 ) {
+					) {
 						break;
 					}
 					$this->insertCurlyBraces();
@@ -3031,7 +3031,7 @@ namespace {
 						self::OPENER_PLACEHOLDER,
 						'',
 						$this->singleNamespace( self::OPENER_PLACEHOLDER . $namespaceBlock )
-					 );
+					);
 					break;
 				default:
 					$return .= $text;
@@ -3052,11 +3052,11 @@ namespace {
 		private function singleNamespace( $source ) {
 			$classList = [];
 			$results   = $this->oracle->query( 'SELECT class FROM classes ORDER BY class' );
-			while ( ( $row = $results->fetchArray() ) ) {
+			while (  ( $row = $results->fetchArray() ) ) {
 				$className      = $row['class'];
 				$classNameParts = explode( '\\', $className );
 				$baseClassName  = '';
-				while ( ( $cnp = array_pop( $classNameParts ) ) ) {
+				while (  ( $cnp = array_pop( $classNameParts ) ) ) {
 					$baseClassName                                                                                                              = $cnp . $baseClassName;
 					$classList[strtolower( $baseClassName )][ltrim( str_replace( '\\\\', '\\', '\\' . $className ) . ' as ' . $baseClassName, '\\' )] = ltrim( str_replace( '\\\\', '\\', '\\' . $className ) . ' as ' . $baseClassName, '\\' );
 				}
@@ -3156,7 +3156,7 @@ namespace {
 			$touchedNamespace = false;
 			while ( list( , $popToken ) = each( $tokens ) ) {
 				$nextTokens[] = $popToken;
-				while ( ( $token = array_shift( $nextTokens ) ) ) {
+				while (  ( $token = array_shift( $nextTokens ) ) ) {
 					list( $id, $text ) = $this->getToken( $token );
 					if ( T_NAMESPACE == $id && ! $this->rightUsefulTokenIs( T_NS_SEPARATOR ) ) {
 						$touchedNamespace = true;
@@ -3303,8 +3303,8 @@ namespace {
 								T_PUBLIC == $touchedVisibility ||
 								T_PRIVATE == $touchedVisibility ||
 								T_PROTECTED == $touchedVisibility
-							 )
-						 ) {
+							)
+						) {
 							$classAttributes[] = $text;
 							$touchedVisibility = null;
 						} else if ( T_FUNCTION == $id ) {
@@ -3409,7 +3409,7 @@ namespace {
 					self::EMPTY_LINE . $this->newLine . self::EMPTY_LINE . $this->newLine,
 					$ret,
 					$count
-				 );
+				);
 			} while ( $count > 0 );
 			$ret = str_replace( self::EMPTY_LINE, '', $ret );
 
@@ -3451,7 +3451,7 @@ namespace {
 				$pipes,
 				$cwd,
 				$env
-			 );
+			);
 			if (  ! is_resource( $process ) ) {
 				fclose( $pipes[0] );
 				fclose( $pipes[1] );
@@ -3567,7 +3567,7 @@ namespace {
 			if (
 				isset( $foundTokens[T_COMMENT] ) ||
 				isset( $foundTokens[T_DOC_COMMENT] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -3656,7 +3656,7 @@ namespace {
 							ST_CURLY_OPEN == $id ||
 							ST_COLON == $id ||
 							( ST_SEMI_COLON == $id && ( ST_SEMI_COLON == $ptId || ST_CURLY_OPEN == $ptId || T_COMMENT == $ptId || T_DOC_COMMENT == $ptId ) )
-						 ) {
+						) {
 							$this->appendCode( $str );
 							break;
 						} else if ( ST_SEMI_COLON == $id && ! ( ST_SEMI_COLON == $ptId || ST_CURLY_OPEN == $ptId || T_COMMENT == $ptId || T_DOC_COMMENT == $ptId ) ) {
@@ -3709,7 +3709,7 @@ namespace {
 						T_WHITESPACE == $id ||
 						T_DOC_COMMENT == $id ||
 						T_COMMENT == $id
-					 ) {
+					) {
 						$this->appendCode( $text );
 						continue;
 					}
@@ -3893,7 +3893,7 @@ namespace {
 				isset( $foundTokens[ST_CURLY_OPEN] ) ||
 				isset( $foundTokens[ST_PARENTHESES_OPEN] ) ||
 				isset( $foundTokens[ST_BRACKET_OPEN] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -3916,8 +3916,8 @@ namespace {
 					(
 						T_WHITESPACE === $id ||
 						( T_COMMENT === $id && '//' == substr( $text, 0, 2 ) )
-					 ) && $this->hasLn( $text )
-				 ) {
+					) && $this->hasLn( $text )
+				) {
 					$bottomFoundStack = end( $foundStack );
 					if ( isset( $bottomFoundStack['implicit'] ) && $bottomFoundStack['implicit'] ) {
 						$idx                          = sizeof( $foundStack ) - 1;
@@ -3954,7 +3954,7 @@ namespace {
 				case ST_PARENTHESES_OPEN:
 				case ST_BRACKET_OPEN:
 					$indentToken = [
-						'id' => $id,
+						'id'       => $id,
 						'implicit' => true,
 					];
 					$this->appendCode( $text );
@@ -3986,7 +3986,7 @@ namespace {
 						$this->hasLn( $text ) &&
 						$this->rightTokenIs( [T_COMMENT, T_DOC_COMMENT] ) &&
 						$this->rightUsefulTokenIs( [T_CASE, T_DEFAULT] )
-					 ) {
+					) {
 						$this->setIndent( -1 );
 						$this->appendCode( str_replace( $this->newLine, $this->newLine . $this->getIndent(), $text ) );
 						$this->setIndent( +1 );
@@ -4035,7 +4035,7 @@ namespace {
 					T_ENDIF == $id || T_ELSEIF == $id ||
 					T_ENDFOR == $id || T_ENDFOREACH == $id || T_ENDWHILE == $id ||
 					( T_ELSE == $id && ! $this->rightUsefulTokenIs( ST_CURLY_OPEN ) )
-				 ) {
+				) {
 					$this->setIndent( -1 );
 				}
 				switch ( $id ) {
@@ -4299,8 +4299,8 @@ namespace {
 								T_COMMENT,
 								T_DOC_COMMENT,
 							] )
-						 )
-					 ) {
+						)
+					) {
 						$text .= $this->indentChar;
 						$this->tkns[$index] = [$id, $text];
 					}
@@ -4320,7 +4320,7 @@ namespace {
 			if (
 				isset( $foundTokens[T_OBJECT_OPERATOR] ) ||
 				isset( $foundTokens[T_DOUBLE_COLON] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -4453,7 +4453,7 @@ namespace {
 						isset( $alignType[$levelCounter][$levelEntranceCounter[$levelCounter]] ) &&
 						( $this->hasLnBefore() || $this->hasLnLeftToken() ) &&
 						self::ALIGN_WITH_INDENT == $alignType[$levelCounter][$levelEntranceCounter[$levelCounter]]
-					 ) {
+					) {
 						$this->appendCode( $this->getIndent( +1 ) );
 					}
 					$this->appendCode( $text );
@@ -4496,7 +4496,7 @@ namespace {
 			&$touchCounter,
 			&$alignType,
 			&$printedPlaceholder
-		 ) {
+		) {
 			++$levelCounter;
 			if (  ! isset( $levelEntranceCounter[$levelCounter] ) ) {
 				$levelEntranceCounter[$levelCounter] = 0;
@@ -4522,7 +4522,7 @@ namespace {
 				if (
 					( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
 					&& $this->hasLn( $text )
-				 ) {
+				) {
 					$token[1] = $text . $this->getIndent( +1 );
 					continue;
 				}
@@ -4544,7 +4544,7 @@ namespace {
 			for ( $i = $this->ptr; $i < $sizeofTokens; ++$i ) {
 				$token           = &$this->tkns[$i];
 				list( $id, $text ) = $this->getToken( $token );
-				if ( ( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
+				if (  ( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
 					&& $this->hasLn( $text ) ) {
 					$token[1] = str_replace( $this->newLine, $this->newLine . $placeholder, $text );
 					continue;
@@ -4633,7 +4633,7 @@ namespace {
 						$this->leftMemoUsefulTokenIs( [T_INC, T_DEC, T_LNUMBER, T_DNUMBER, T_VARIABLE, ST_PARENTHESES_CLOSE, T_STRING, T_ARRAY, T_ARRAY_CAST, T_BOOL_CAST, T_DOUBLE_CAST, T_INT_CAST, T_OBJECT_CAST, T_STRING_CAST, T_UNSET_CAST, ST_BRACKET_CLOSE] )
 						&&
 						$this->rightUsefulTokenIs( [T_INC, T_DEC, T_LNUMBER, T_DNUMBER, T_VARIABLE, ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE, T_STRING, T_ARRAY, T_ARRAY_CAST, T_BOOL_CAST, T_DOUBLE_CAST, T_INT_CAST, T_OBJECT_CAST, T_STRING_CAST, T_UNSET_CAST, ST_BRACKET_CLOSE, ST_BRACKET_OPEN] )
-					 ) {
+					) {
 						$this->appendCode( ' ' . $text . ' ' );
 						break;
 					}
@@ -4660,19 +4660,19 @@ namespace {
 					if (
 						T_WHITESPACE === $prevId &&
 						T_WHITESPACE !== $nextId
-					 ) {
+					) {
 						$this->appendCode( $text . $this->getSpace(  ! $this->rightTokenIs( ST_COLON ) ) );
 						break;
 					} else if (
 						T_WHITESPACE !== $prevId &&
 						T_WHITESPACE === $nextId
-					 ) {
+					) {
 						$this->appendCode( ' ' . $text );
 						break;
 					} else if (
 						T_WHITESPACE !== $prevId &&
 						T_WHITESPACE !== $nextId
-					 ) {
+					) {
 						$this->appendCode( ' ' . $text . $this->getSpace(  ! $this->rightTokenIs( ST_COLON ) ) );
 						break;
 					}
@@ -4687,7 +4687,7 @@ namespace {
 						$inTernaryOperator > 0 &&
 						T_WHITESPACE === $prevId &&
 						T_WHITESPACE !== $nextId
-					 ) {
+					) {
 						$this->appendCode( $text . ' ' );
 						--$inTernaryOperator;
 						break;
@@ -4695,7 +4695,7 @@ namespace {
 						$inTernaryOperator > 0 &&
 						T_WHITESPACE !== $prevId &&
 						T_WHITESPACE === $nextId
-					 ) {
+					) {
 						$this->appendCode( $this->getSpace(  ! $shortTernaryOperator ) . $text );
 						--$inTernaryOperator;
 						break;
@@ -4703,7 +4703,7 @@ namespace {
 						$inTernaryOperator > 0 &&
 						T_WHITESPACE !== $prevId &&
 						T_WHITESPACE !== $nextId
-					 ) {
+					) {
 						$this->appendCode( $this->getSpace(  ! $shortTernaryOperator ) . $text . ' ' );
 						--$inTernaryOperator;
 						break;
@@ -4715,9 +4715,9 @@ namespace {
 							T_WHITESPACE != $nextId
 							||
 							( T_WHITESPACE == $nextId && ! $this->hasLn( $nextText ) )
-						 )
+						)
 						&& $this->rightUsefulTokenIs( T_CLOSE_TAG )
-					 ) {
+					) {
 						$this->appendCode( $text . ' ' );
 						break;
 					} else if ( T_COMMENT == $nextId ) {
@@ -4748,7 +4748,7 @@ namespace {
 							' ' .
 							$text .
 							$this->getSpace( $this->rightTokenIs( T_COMMENT ) )
-						 );
+						);
 						break;
 					} else if ( $this->rightTokenIs( ST_CURLY_CLOSE ) || ( $this->leftMemoTokenIs( [T_OBJECT_OPERATOR, ST_DOLLAR] ) && $this->rightTokenIs( [T_VARIABLE] ) ) ) {
 						$this->appendCode( $text );
@@ -4866,8 +4866,8 @@ namespace {
 							! $this->leftMemoTokenIs( T_DOUBLE_COLON ) &&
 							! $this->rightTokenIs( ST_SEMI_COLON ) ||
 							$this->rightTokenIs( T_DOUBLE_ARROW )
-						 )
-					 );
+						)
+					);
 					break;
 
 				case T_EXTENDS:
@@ -5056,8 +5056,8 @@ namespace {
 				switch ( $id ) {
 				case T_CLASS:
 					$attributes = [
-						'private' => [],
-						'public' => [],
+						'private'   => [],
+						'public'    => [],
 						'protected' => [],
 					];
 					$functionList      = [];
@@ -5280,7 +5280,7 @@ namespace {
 							T_FOREACH == $poppedBlock ||
 							T_IF == $poppedBlock ||
 							T_WHILE == $poppedBlock
-						 ) &&
+						) &&
 						! $this->hasLnAfter() &&
 						! $this->rightTokenIs( [
 							ST_BRACKET_OPEN,
@@ -5295,7 +5295,7 @@ namespace {
 							T_OBJECT_OPERATOR,
 							T_CLOSE_TAG,
 						] )
-					 ) {
+					) {
 						$this->appendCode( $this->newLine );
 					}
 					break;
@@ -5630,7 +5630,7 @@ namespace {
 						$this->rightUsefulTokenIs( [T_CLOSE_TAG] ) &&
 						! $this->leftUsefulTokenIs( [ST_SEMI_COLON] ) &&
 						! $this->leftUsefulTokenIs( [T_OPEN_TAG] )
-					 ) {
+					) {
 						$touchedComment = true;
 						$this->rtrimAndappendCode( ST_SEMI_COLON . ' ' );
 					}
@@ -5856,23 +5856,23 @@ namespace {
 	final class PSR2KeywordsLowerCase extends FormatterPass {
 		private static $reservedWords = [
 			'__halt_compiler' => 1,
-			'abstract' => 1, 'and' => 1, 'array' => 1, 'as' => 1,
-			'break' => 1,
-			'callable' => 1, 'case' => 1, 'catch' => 1, 'class' => 1, 'clone' => 1, 'const' => 1, 'continue' => 1,
-			'declare' => 1, 'default' => 1, 'die' => 1, 'do' => 1,
-			'echo' => 1, 'else' => 1, 'elseif' => 1, 'empty' => 1, 'enddeclare' => 1, 'endfor' => 1, 'endforeach' => 1, 'endif' => 1, 'endswitch' => 1, 'endwhile' => 1, 'eval' => 1, 'exit' => 1, 'extends' => 1,
-			'final' => 1, 'for' => 1, 'foreach' => 1, 'function' => 1,
-			'global' => 1, 'goto' => 1,
-			'if' => 1, 'implements' => 1, 'include' => 1, 'include_once' => 1, 'instanceof' => 1, 'insteadof' => 1, 'interface' => 1, 'isset' => 1,
-			'list' => 1,
-			'namespace' => 1, 'new' => 1,
-			'or' => 1,
-			'print' => 1, 'private' => 1, 'protected' => 1, 'public' => 1,
-			'require' => 1, 'require_once' => 1, 'return' => 1,
-			'static' => 1, 'switch' => 1,
-			'throw' => 1, 'trait' => 1, 'try' => 1,
-			'unset' => 1, 'use' => 1, 'var' => 1,
-			'while' => 1, 'xor' => 1,
+			'abstract'        => 1, 'and'          => 1, 'array'     => 1, 'as'           => 1,
+			'break'           => 1,
+			'callable'        => 1, 'case'         => 1, 'catch'     => 1, 'class'        => 1, 'clone'      => 1, 'const'     => 1, 'continue'   => 1,
+			'declare'         => 1, 'default'      => 1, 'die'       => 1, 'do'           => 1,
+			'echo'            => 1, 'else'         => 1, 'elseif'    => 1, 'empty'        => 1, 'enddeclare' => 1, 'endfor'    => 1, 'endforeach' => 1, 'endif' => 1, 'endswitch' => 1, 'endwhile' => 1, 'eval' => 1, 'exit' => 1, 'extends' => 1,
+			'final'           => 1, 'for'          => 1, 'foreach'   => 1, 'function'     => 1,
+			'global'          => 1, 'goto'         => 1,
+			'if'              => 1, 'implements'   => 1, 'include'   => 1, 'include_once' => 1, 'instanceof' => 1, 'insteadof' => 1, 'interface'  => 1, 'isset' => 1,
+			'list'            => 1,
+			'namespace'       => 1, 'new'          => 1,
+			'or'              => 1,
+			'print'           => 1, 'private'      => 1, 'protected' => 1, 'public'       => 1,
+			'require'         => 1, 'require_once' => 1, 'return'    => 1,
+			'static'          => 1, 'switch'       => 1,
+			'throw'           => 1, 'trait'        => 1, 'try'       => 1,
+			'unset'           => 1, 'use'          => 1, 'var'       => 1,
+			'while'           => 1, 'xor'          => 1,
 		];
 
 		public function candidate( $source, $foundTokens ) {
@@ -5892,7 +5892,7 @@ namespace {
 					T_COMMENT == $id ||
 					T_DOC_COMMENT == $id ||
 					T_CONSTANT_ENCAPSED_STRING == $id
-				 ) {
+				) {
 					$this->appendCode( $text );
 					continue;
 				}
@@ -5900,7 +5900,7 @@ namespace {
 				if (
 					T_STRING == $id
 					&& $this->leftUsefulTokenIs( [T_DOUBLE_COLON, T_OBJECT_OPERATOR] )
-				 ) {
+				) {
 					$this->appendCode( $text );
 					continue;
 				}
@@ -5925,9 +5925,9 @@ namespace {
 						! $this->rightUsefulTokenIs( [
 							T_NS_SEPARATOR, T_AS, T_CLASS, T_EXTENDS, T_IMPLEMENTS, T_INSTANCEOF, T_INTERFACE, T_NEW, T_NS_SEPARATOR, T_PAAMAYIM_NEKUDOTAYIM, T_USE, T_TRAIT, T_INSTEADOF, T_CONST,
 						] )
-					 ) ||
+					) ||
 					isset( static::$reservedWords[$lcText] )
-				 ) {
+				) {
 					$text = $lcText;
 				}
 				$this->appendCode( $text );
@@ -6094,7 +6094,7 @@ namespace {
 						null !== $visibility ||
 						null !== $finalOrAbstract ||
 						null !== $static
-					 ) {
+					) {
 						null !== $finalOrAbstract && $this->appendCode( $finalOrAbstract . $this->getSpace() );
 						null !== $visibility && $this->appendCode( $visibility . $this->getSpace() );
 						null !== $static && $this->appendCode( $static . $this->getSpace() );
@@ -6116,7 +6116,7 @@ namespace {
 					} else if (
 						$hasFoundClassOrInterface &&
 						! $this->leftTokenIs( [T_DOUBLE_ARROW, T_RETURN, ST_EQUAL, ST_COMMA, ST_PARENTHESES_OPEN] )
-					 ) {
+					) {
 						$this->appendCode( 'public' . $this->getSpace() );
 					}
 					if ( $hasFoundClassOrInterface && null !== $static ) {
@@ -6271,25 +6271,25 @@ EOT;
 
 	class AliasToMaster extends AdditionalPass {
 		protected static $aliasList = [
-			'chop' => 'rtrim',
-			'close' => 'closedir',
-			'die' => 'exit',
-			'doubleval' => 'floatval',
-			'fputs' => 'fwrite',
-			'ini_alter' => 'ini_set',
-			'is_double' => 'is_float',
-			'is_integer' => 'is_int',
-			'is_long' => 'is_int',
-			'is_real' => 'is_float',
-			'is_writeable' => 'is_writable',
-			'join' => 'implode',
-			'key_exists' => 'array_key_exists',
+			'chop'                 => 'rtrim',
+			'close'                => 'closedir',
+			'die'                  => 'exit',
+			'doubleval'            => 'floatval',
+			'fputs'                => 'fwrite',
+			'ini_alter'            => 'ini_set',
+			'is_double'            => 'is_float',
+			'is_integer'           => 'is_int',
+			'is_long'              => 'is_int',
+			'is_real'              => 'is_float',
+			'is_writeable'         => 'is_writable',
+			'join'                 => 'implode',
+			'key_exists'           => 'array_key_exists',
 			'magic_quotes_runtime' => 'set_magic_quotes_runtime',
-			'pos' => 'current',
-			'rewind' => 'rewinddir',
-			'show_source' => 'highlight_file',
-			'sizeof' => 'count',
-			'strchr' => 'strstr',
+			'pos'                  => 'current',
+			'rewind'               => 'rewinddir',
+			'show_source'          => 'highlight_file',
+			'sizeof'               => 'count',
+			'strchr'               => 'strstr',
 		];
 
 		private $touchedEmptyNs = false;
@@ -6339,16 +6339,16 @@ EOT;
 								T_NS_SEPARATOR,
 								T_DOUBLE_COLON,
 							] )
-						 )
+						)
 						||
 						(
 							$this->leftUsefulTokenIs( [
 								T_NS_SEPARATOR,
 							] ) &&
 							$this->touchedEmptyNs
-						 )
-					 )
-				 ) {
+						)
+					)
+				) {
 					$this->appendCode( static::$aliasList[strtolower( $text )] );
 					continue;
 				}
@@ -6429,7 +6429,7 @@ EOT;
 					$aligner = new self();
 					$this->appendCode(
 						str_replace( self::OPEN_TAG, '', $aligner->format( self::OPEN_TAG . $block ) )
-					 );
+					);
 					break;
 
 				case ST_PARENTHESES_OPEN:
@@ -6548,8 +6548,8 @@ EOT;
 								$levelCounter,
 								$levelEntranceCounter[$levelCounter],
 								$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]
-							 )
-						 );
+							)
+						);
 					}
 
 					$this->appendCode( $text );
@@ -6772,7 +6772,7 @@ EOT;
 					$aligner = new self();
 					$this->appendCode(
 						str_replace( self::OPEN_TAG, '', $aligner->format( self::OPEN_TAG . $block ) )
-					 );
+					);
 					break;
 
 				case ST_PARENTHESES_OPEN:
@@ -6866,8 +6866,8 @@ EOT;
 							$levelCounter,
 							$levelEntranceCounter[$levelCounter],
 							$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]
-						 ) . $text
-					 );
+						) . $text
+					);
 					break;
 
 				case T_WHITESPACE:
@@ -7190,7 +7190,7 @@ EOT;
 						}
 					}
 					$indentToken = [
-						'id' => $id,
+						'id'       => $id,
 						'implicit' => true,
 					];
 					$adjustedIndendation = max( $currentIndentation - $this->indent, 0 );
@@ -7207,7 +7207,7 @@ EOT;
 						 ! $this->hasLnAfter() &&
 						! $this->leftUsefulTokenIs( [T_OBJECT_OPERATOR, T_DOUBLE_COLON] ) &&
 						! $this->rightTokenIs( [T_COMMENT, T_DOC_COMMENT] )
-					 ) {
+					) {
 						$this->setIndent( +1 );
 						$this->appendCode( $this->getCrlfIndent() );
 						$this->setIndent( -1 );
@@ -7225,7 +7225,7 @@ EOT;
 				case ST_PARENTHESES_OPEN:
 					$blockStack[] = self::OTHER_BLOCK;
 					$indentToken  = [
-						'id' => $id,
+						'id'       => $id,
 						'implicit' => true,
 					];
 					$this->appendCode( $text );
@@ -7352,7 +7352,7 @@ EOT;
 						ST_SEMI_COLON,
 						ST_PARENTHESES_CLOSE,
 					] )
-				 ) {
+				) {
 					continue;
 				}
 
@@ -7365,7 +7365,7 @@ EOT;
 						ST_CURLY_CLOSE,
 						T_OPEN_TAG,
 					] )
-				 ) {
+				) {
 					$this->refInsert( $this->tkns, $this->ptr, $token );
 					$tokenRef = null;
 				}
@@ -7630,7 +7630,7 @@ EOT;
 							T_COMMENT,
 							T_DOC_COMMENT,
 						] )
-					 ) {
+					) {
 						$this->appendCode( $text );
 						continue;
 					}
@@ -7670,7 +7670,7 @@ EOT;
 							T_COMMENT,
 							T_DOC_COMMENT,
 						] )
-					 ) {
+					) {
 						$this->appendCode( $text );
 						continue;
 					}
@@ -7678,7 +7678,7 @@ EOT;
 					if (
 						$this->leftUsefulTokenIs( ST_PARENTHESES_CLOSE ) &&
 						ST_PARENTHESES_OPEN != $lastParen
-					 ) {
+					) {
 						$this->appendCode( $text );
 						continue;
 					}
@@ -7689,8 +7689,8 @@ EOT;
 							ST_CURLY_OPEN == $lastCurly
 							||
 							T_FUNCTION == $lastCurly
-						 )
-					 ) {
+						)
+					) {
 						$this->appendCode( $text );
 						continue;
 					}
@@ -7837,7 +7837,7 @@ EOT;
 						'__set_state' != $text &&
 						'__clone' != $text &&
 						' __debugInfo' != $text
-					 ) {
+					) {
 						if ( substr( $text, 0, 2 ) == '__' ) {
 							$text = substr( $text, 2 );
 						}
@@ -7910,7 +7910,7 @@ EOT;
 							T_STRING_CAST,
 							T_UNSET_CAST,
 						] )
-					 ) {
+					) {
 						$this->rtrimAndAppendCode( $text );
 						break;
 					}
@@ -7968,7 +7968,7 @@ EOT;
 				isset( $foundTokens[T_CLASS] ) ||
 				isset( $foundTokens[T_INTERFACE] ) ||
 				isset( $foundTokens[T_TRAIT] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -7996,7 +7996,7 @@ EOT;
 					T_CLASS == $id ||
 					T_INTERFACE == $id ||
 					T_TRAIT == $id
-				 ) {
+				) {
 					$this->refWalkUsefulUntil( $this->tkns, $ptr, T_STRING );
 					list( , $name ) = $this->getToken( $this->tkns[$ptr] );
 
@@ -8053,14 +8053,14 @@ EOT;
 					 ! ( T_STRING == $id && strtolower( $text ) == strtolower( $name ) ) ||
 					$this->leftTokenSubsetIsAtIdx( $this->tkns, $i, T_NS_SEPARATOR ) ||
 					$this->rightTokenSubsetIsAtIdx( $this->tkns, $i, T_NS_SEPARATOR )
-				 ) {
+				) {
 					continue;
 				}
 
 				if (
 					$this->leftTokenSubsetIsAtIdx( $this->tkns, $i, [T_INSTANCEOF, T_NEW] ) ||
 					$this->rightTokenSubsetIsAtIdx( $this->tkns, $i, T_DOUBLE_COLON )
-				 ) {
+				) {
 					$this->tkns[$i] = [T_STRING, self::PLACEHOLDER];
 				}
 			}
@@ -8340,7 +8340,7 @@ EOT;
 				'"' == $text[0] &&
 				false === strpos( $text, '\'' ) &&
 				! preg_match( '/(?<!\\\\)(?:\\\\{2})*\\\\(?!["$\\\\])/', $text )
-			 );
+			);
 		}
 	}
 
@@ -8679,7 +8679,7 @@ EOT;
 				$type,
 				$this->newLine,
 				$this->newLine
-			 );
+			);
 		}
 	}
 
@@ -8783,7 +8783,7 @@ EOT;
 						$this->indentChar,
 						str_repeat( ' ', self::$tabSizeInSpace ),
 						$text
-					 );
+					);
 				}
 				$textLen = strlen( $text );
 
@@ -9182,7 +9182,7 @@ EOT;
 				isset( $foundTokens[T_CLASS] )
 				|| isset( $foundTokens[T_TRAIT] )
 				|| isset( $foundTokens[T_INTERFACE] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -9213,7 +9213,7 @@ EOT;
 						self::OPENER_PLACEHOLDER,
 						'',
 						static::orderMethods( self::OPENER_PLACEHOLDER . $classBlock )
-					 );
+					);
 					$this->appendCode( $return );
 					break;
 				default:
@@ -9538,7 +9538,7 @@ EOT;
 				if (
 					( T_TRAIT === $id || T_CLASS === $id ) &&
 					! $touchedDoubleColon
-				 ) {
+				) {
 					$newTokens[] = $token;
 					while ( list( , $token ) = each( $tokens ) ) {
 						list( $id, $text ) = $this->getToken( $token );
@@ -9555,8 +9555,8 @@ EOT;
 						T_WHITESPACE === $id
 						||
 						( T_COMMENT === $id && '/' == $text[2] )
-					 ) && substr_count( $text, $this->newLine ) >= 2
-				 ) {
+					) && substr_count( $text, $this->newLine ) >= 2
+				) {
 					++$groupCount;
 					$useStack[$groupCount] = [];
 					$newTokens[]           = $token;
@@ -9654,8 +9654,8 @@ EOT;
 						$aliasCount, function ( $v ) {
 							return 0 === $v;
 						}
-					 )
-				 );
+					)
+				);
 			}
 
 			foreach ( $unusedImport as $v ) {
@@ -9686,7 +9686,7 @@ EOT;
 				if (
 					T_CLASS == $id ||
 					T_INTERFACE == $id
-				 ) {
+				) {
 					++$classRelatedCount;
 				}
 				if ( T_NAMESPACE == $id && ! $this->rightUsefulTokenIs( T_NS_SEPARATOR ) ) {
@@ -9750,7 +9750,7 @@ EOT;
 						self::OPENER_PLACEHOLDER,
 						'',
 						$this->sortUseClauses( self::OPENER_PLACEHOLDER . $namespaceBlock, self::SPLIT_COMMA, self::REMOVE_UNUSED, self::STRIP_BLANK_LINES, self::BLANK_LINE_AFTER_USE_BLOCK )
-					 );
+					);
 
 					break;
 				default:
@@ -9982,48 +9982,48 @@ EOT;
 
 			$groups = [
 				'@deprecated' => 1,
-				'@link' => 1,
-				'@see' => 1,
-				'@since' => 1,
+				'@link'       => 1,
+				'@see'        => 1,
+				'@since'      => 1,
 
-				'@author' => 2,
+				'@author'    => 2,
 				'@copyright' => 2,
-				'@license' => 2,
+				'@license'   => 2,
 
-				'@package' => 3,
+				'@package'    => 3,
 				'@subpackage' => 3,
 
-				'@param' => 4,
+				'@param'  => 4,
 				'@throws' => 4,
 				'@return' => 4,
 			];
 			$weights = [
-				'@package' => 1,
+				'@package'    => 1,
 				'@subpackage' => 2,
-				'@author' => 3,
-				'@copyright' => 4,
-				'@license' => 5,
+				'@author'     => 3,
+				'@copyright'  => 4,
+				'@license'    => 5,
 				'@deprecated' => 6,
-				'@link' => 7,
-				'@see' => 8,
-				'@since' => 9,
-				'@param' => 10,
-				'@throws' => 11,
-				'@return' => 12,
+				'@link'       => 7,
+				'@see'        => 8,
+				'@since'      => 9,
+				'@param'      => 10,
+				'@throws'     => 11,
+				'@return'     => 12,
 			];
 			$weightsLen = [
-				'@package' => strlen( '@package' ),
+				'@package'    => strlen( '@package' ),
 				'@subpackage' => strlen( '@subpackage' ),
-				'@author' => strlen( '@author' ),
-				'@copyright' => strlen( '@copyright' ),
-				'@license' => strlen( '@license' ),
+				'@author'     => strlen( '@author' ),
+				'@copyright'  => strlen( '@copyright' ),
+				'@license'    => strlen( '@license' ),
 				'@deprecated' => strlen( '@deprecated' ),
-				'@link' => strlen( '@link' ),
-				'@see' => strlen( '@see' ),
-				'@since' => strlen( '@since' ),
-				'@param' => strlen( '@param' ),
-				'@throws' => strlen( '@throws' ),
-				'@return' => strlen( '@return' ),
+				'@link'       => strlen( '@link' ),
+				'@see'        => strlen( '@see' ),
+				'@since'      => strlen( '@since' ),
+				'@param'      => strlen( '@param' ),
+				'@throws'     => strlen( '@throws' ),
+				'@return'     => strlen( '@return' ),
 			];
 
 			$docBlock = trim( str_replace( ['/**', '*/'], '', $docBlock ) );
@@ -10085,18 +10085,18 @@ EOT;
 			}
 
 			$patterns = [
-				'@param' => strlen( '@param' ),
+				'@param'  => strlen( '@param' ),
 				'@throws' => strlen( '@throws' ),
 				'@return' => strlen( '@return' ),
-				'@var' => strlen( '@var' ),
-				'@type' => strlen( '@type' ),
+				'@var'    => strlen( '@var' ),
+				'@type'   => strlen( '@type' ),
 			];
 			$patternsColumns = [
-				'@param' => 4,
+				'@param'  => 4,
 				'@throws' => 2,
 				'@return' => 2,
-				'@var' => 4,
-				'@type' => 4,
+				'@var'    => 4,
+				'@type'   => 4,
 			];
 			$maxColumn = [];
 
@@ -10128,7 +10128,7 @@ EOT;
 						$columnCount    = 0;
 						$maxColumnCount = $patternsColumns[$pattern];
 						foreach ( $maxColumn as $rightMost ) {
-							while ( ( list( , $word ) = each( $words ) ) ) {
+							while (  ( list( , $word ) = each( $words ) ) ) {
 								if ( trim( $word ) ) {
 									break;
 								}
@@ -10142,7 +10142,7 @@ EOT;
 								break;
 							}
 						}
-						while ( ( list( , $word ) = each( $words ) ) ) {
+						while (  ( list( , $word ) = each( $words ) ) ) {
 							if (  ! trim( $word ) ) {
 								continue;
 							}
@@ -10327,7 +10327,7 @@ EOT;
 			if (
 				isset( $foundTokens[T_OBJECT_OPERATOR] ) ||
 				isset( $foundTokens[T_DOUBLE_COLON] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -10496,7 +10496,7 @@ EOT;
 							$levelCounter,
 							$levelEntranceCounter[$levelCounter],
 							$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]
-						 );
+						);
 						$this->appendCode( $placeholder . $text );
 						$foundToken = $this->printUntilAny( [ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE, ST_SEMI_COLON, ST_EQUAL, $this->newLine, ST_COMMA] );
 						if ( ST_SEMI_COLON == $foundToken || ST_EQUAL == $foundToken || ST_COMMA == $foundToken ) {
@@ -10522,7 +10522,7 @@ EOT;
 								$levelCounter,
 								$levelEntranceCounter[$levelCounter],
 								$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]
-							 );
+							);
 							$this->appendCode( $placeholder . $text );
 							$foundToken = $this->printUntilAny( [ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE, ST_SEMI_COLON, $this->newLine] );
 							if ( ST_SEMI_COLON == $foundToken ) {
@@ -10530,7 +10530,7 @@ EOT;
 							} else if (
 								ST_PARENTHESES_OPEN == $foundToken &&
 								! $this->hasLnInBlock( $this->tkns, $this->ptr, ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE )
-							 ) {
+							) {
 								$this->printBlock( ST_PARENTHESES_OPEN, ST_PARENTHESES_CLOSE );
 								break;
 							} else if ( ST_PARENTHESES_OPEN == $foundToken || ST_PARENTHESES_CLOSE == $foundToken ) {
@@ -10560,7 +10560,7 @@ EOT;
 						isset( $alignType[$levelCounter][$levelEntranceCounter[$levelCounter]] ) &&
 						( $this->hasLnBefore() || $this->hasLnLeftToken() ) &&
 						! $this->leftUsefulTokenIs( ST_CURLY_CLOSE )
-					 ) {
+					) {
 						if ( self::ALIGN_WITH_SPACES == $alignType[$levelCounter][$levelEntranceCounter[$levelCounter]] ) {
 							++$printedPlaceholder[$levelCounter][$levelEntranceCounter[$levelCounter]][$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]];
 							$this->appendCode(
@@ -10569,8 +10569,8 @@ EOT;
 									$levelCounter,
 									$levelEntranceCounter[$levelCounter],
 									$contextCounter[$levelCounter][$levelEntranceCounter[$levelCounter]]
-								 )
-							 );
+								)
+							);
 						} else if ( self::ALIGN_WITH_INDENT == $alignType[$levelCounter][$levelEntranceCounter[$levelCounter]] ) {
 							$this->appendCode( $this->getIndent( +1 ) );
 						}
@@ -10679,7 +10679,7 @@ EOT;
 			&$touchCounter,
 			&$alignType,
 			&$printedPlaceholder
-		 ) {
+		) {
 			++$levelCounter;
 			if (  ! isset( $levelEntranceCounter[$levelCounter] ) ) {
 				$levelEntranceCounter[$levelCounter] = 0;
@@ -10705,7 +10705,7 @@ EOT;
 				if (
 					( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
 					&& $this->hasLn( $text )
-				 ) {
+				) {
 					$token[1] = $text . $this->getIndent( +1 );
 					continue;
 				}
@@ -10727,7 +10727,7 @@ EOT;
 			for ( $i = $this->ptr; $i < $sizeofTokens; ++$i ) {
 				$token           = &$this->tkns[$i];
 				list( $id, $text ) = $this->getToken( $token );
-				if ( ( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
+				if (  ( T_WHITESPACE == $id || T_DOC_COMMENT == $id || T_COMMENT == $id )
 					&& $this->hasLn( $text ) ) {
 					$token[1] = str_replace( $this->newLine, $this->newLine . $placeholder, $text );
 					continue;
@@ -10838,7 +10838,7 @@ EOT;
 						if (
 							T_SWITCH == $poppedID &&
 							$this->rightTokenIs( ST_CURLY_CLOSE )
-						 ) {
+						) {
 							$this->setIndent( -1 );
 							$text = str_replace( $this->newLine, $this->newLine . $this->getIndent(), $text );
 							$this->setIndent( +1 );
@@ -11258,8 +11258,8 @@ EOT;
 								( T_STRING == $id && strtolower( $text ) == 'null' ) ||
 								ST_PARENTHESES_OPEN == $id ||
 								ST_PARENTHESES_CLOSE == $id
-							 )
-						 ) {
+							)
+						) {
 							$touchedAnotherValidToken = true;
 						}
 					}
@@ -11495,7 +11495,7 @@ EOT;
 				isset( $foundTokens[T_FOR] ) ||
 				isset( $foundTokens[T_FOREACH] ) ||
 				isset( $foundTokens[T_SWITCH] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -11541,7 +11541,7 @@ EOT;
 							T_COMMENT,
 							T_DOC_COMMENT,
 						] )
-					 ) {
+					) {
 						$this->appendCode( $this->newLine );
 						$isComment = true;
 					}
@@ -11632,17 +11632,25 @@ EOT;
 				$this->ptr       = $index;
 				switch ( $id ) {
 				case ST_EXCLAMATION:
+					list( $prevId ) = $this->inspectToken( -1 );
+					list( $nextId ) = $this->inspectToken( +1 );
+
 					$this->appendCode(
-						$this->getSpace(  ! $this->leftUsefulTokenIs( [
-							T_BOOLEAN_AND, T_BOOLEAN_OR,
-							T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR,
-						] ) )
+						$this->getSpace(
+							(
+								! $this->leftUsefulTokenIs( [
+									T_BOOLEAN_AND, T_BOOLEAN_OR,
+									T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR,
+								] )
+								&& $prevId != T_WHITESPACE
+							)
+						)
 						. $text .
 						$this->getSpace(  ! $this->rightUsefulTokenIs( [
 							T_BOOLEAN_AND, T_BOOLEAN_OR,
 							T_LOGICAL_AND, T_LOGICAL_OR, T_LOGICAL_XOR,
 						] ) )
-					 );
+					);
 					break;
 				default:
 					$this->appendCode( $text );
@@ -11687,26 +11695,45 @@ if ( ! true) foo();
 				$this->ptr       = $index;
 				switch ( $id ) {
 				case ST_PARENTHESES_OPEN:
+					list( $prevId ) = $this->inspectToken( -1 );
+					list( $nextId ) = $this->inspectToken( +1 );
+
 					$this->appendCode(
-						$this->getSpace( $this->leftUsefulTokenIs( [
-							T_WHITESPACE,
-						] ) )
+						$this->getSpace(
+							(
+								$this->leftTokenIs(
+									[
+										ST_PARENTHESES_OPEN,
+									]
+								)
+								&& $prevId != T_WHITESPACE
+								&& $prevId != T_FUNCTION
+							)
+						)
 						. $text .
-						$this->getSpace(  ! $this->rightUsefulTokenIs( [
+						$this->getSpace(  ! $this->rightTokenIs( [
 							T_WHITESPACE, ST_PARENTHESES_CLOSE,
 						] ) )
-					 );
+					);
 					break;
 				case ST_PARENTHESES_CLOSE:
+					list( $prevId ) = $this->inspectToken( -1 );
+					list( $nextId ) = $this->inspectToken( +1 );
+
 					$this->appendCode(
-						$this->getSpace(  ! $this->leftUsefulTokenIs( [
-							T_WHITESPACE, ST_PARENTHESES_OPEN,
-						] ) )
-						. $text .
-						$this->getSpace( $this->rightUsefulTokenIs( [
-							T_WHITESPACE,
-						] ) )
-					 );
+						$this->getSpace(
+							(
+								! $this->leftTokenIs(
+									[
+										ST_PARENTHESES_OPEN,
+									]
+								)
+								&&
+								$prevId != T_WHITESPACE
+							)
+						)
+						. $text
+					);
 					break;
 				default:
 					$this->appendCode( $text );
@@ -11725,10 +11752,10 @@ if ( ! true) foo();
 			echo '
 <?php
 // From:
-if (true) foo();
+if (true) foo(); foo( $a );
 
 // To:
-if ( true ) foo();
+if ( true ) foo(); foo( $a );
 ';
 		}
 	}
@@ -11801,10 +11828,10 @@ EOT;
 
 	final class StrictBehavior extends AdditionalPass {
 		private static $functions = [
-			'array_keys' => 3,
-			'array_search' => 3,
-			'base64_decode' => 2,
-			'in_array' => 3,
+			'array_keys'         => 3,
+			'array_search'       => 3,
+			'base64_decode'      => 2,
+			'in_array'           => 3,
 			'mb_detect_encoding' => 3,
 		];
 
@@ -12287,7 +12314,7 @@ EOT;
 				isset( $foundTokens[T_IF] ) ||
 				isset( $foundTokens[T_SWITCH] ) ||
 				isset( $foundTokens[T_WHILE] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -12507,28 +12534,28 @@ EOT;
 
 	final class UpgradeToPreg extends AdditionalPass {
 		private static $conversionTable = [
-			'ereg' => [
-				'to' => 'preg_match',
+			'ereg'          => [
+				'to'       => 'preg_match',
 				'modifier' => '',
 			],
-			'ereg_replace' => [
-				'to' => 'preg_replace',
+			'ereg_replace'  => [
+				'to'       => 'preg_replace',
 				'modifier' => '',
 			],
-			'eregi' => [
-				'to' => 'preg_match',
+			'eregi'         => [
+				'to'       => 'preg_match',
 				'modifier' => 'i',
 			],
 			'eregi_replace' => [
-				'to' => 'preg_replace',
+				'to'       => 'preg_replace',
 				'modifier' => 'i',
 			],
-			'split' => [
-				'to' => 'preg_split',
+			'split'         => [
+				'to'       => 'preg_split',
 				'modifier' => '',
 			],
-			'spliti' => [
-				'to' => 'preg_split',
+			'spliti'        => [
+				'to'       => 'preg_split',
 				'modifier' => 'i',
 			],
 		];
@@ -12539,7 +12566,7 @@ EOT;
 			return (
 				false !== stripos( $source, 'ereg' ) ||
 				false !== stripos( $source, 'split' )
-			 );
+			);
 		}
 
 		public function format( $source ) {
@@ -12676,7 +12703,7 @@ $var = preg_split("/[A-Z]/Di", $var);
 						$this->indentChar,
 						str_repeat( ' ', self::$tabSizeInSpace ),
 						$text
-					 );
+					);
 				}
 				$textLen = strlen( $text );
 
@@ -12835,7 +12862,7 @@ EOT;
 				isset( $foundTokens[T_IS_IDENTICAL] ) ||
 				isset( $foundTokens[T_IS_NOT_EQUAL] ) ||
 				isset( $foundTokens[T_IS_NOT_IDENTICAL] )
-			 ) {
+			) {
 				return true;
 			}
 
@@ -12974,7 +13001,7 @@ EOT;
 						$tkns,
 						$ptr,
 						[T_STRING, T_VARIABLE, T_NS_SEPARATOR, T_OBJECT_OPERATOR, T_DOUBLE_COLON, ST_CURLY_OPEN, ST_PARENTHESES_OPEN, ST_BRACKET_OPEN, T_CURLY_OPEN, T_DOLLAR_OPEN_CURLY_BRACES]
-					 ) ) {
+					) ) {
 						continue;
 					}
 					while ( list( $ptr, $token ) = each( $tkns ) ) {
@@ -13003,8 +13030,8 @@ EOT;
 								$tkns,
 								$ptr,
 								[T_STRING, T_VARIABLE, T_NS_SEPARATOR, T_OBJECT_OPERATOR, T_DOUBLE_COLON, ST_CURLY_OPEN, ST_PARENTHESES_OPEN, ST_BRACKET_OPEN, T_CURLY_OPEN, T_DOLLAR_OPEN_CURLY_BRACES]
-							 )
-						 ) {
+							)
+						) {
 							break;
 						}
 					}
@@ -13072,36 +13099,36 @@ EOT;
 		$inPhar = false;
 	}
 
-	function getOptions( $inPhar ){
+	function getOptions( $inPhar ) {
 		$options = [
-			'--cache[=FILENAME]' => 'cache file. Default: ',
-			'--cakephp' => 'Apply CakePHP coding style',
-			'--config=FILENAME' => 'configuration file. Default: .phpfmt.ini',
-			'--constructor=type' => 'analyse classes for attributes and generate constructor - camel, snake, golang',
-			'--dry-run' => 'Runs the formatter without atually changing files; returns exit code 1 if changes would have been applied',
-			'--enable_auto_align' => 'disable auto align of ST_EQUAL and T_DOUBLE_ARROW',
-			'--exclude=pass1,passN,...' => 'disable specific passes',
-			'--help-pass' => 'show specific information for one pass',
+			'--cache[=FILENAME]'               => 'cache file. Default: ',
+			'--cakephp'                        => 'Apply CakePHP coding style',
+			'--config=FILENAME'                => 'configuration file. Default: .phpfmt.ini',
+			'--constructor=type'               => 'analyse classes for attributes and generate constructor - camel, snake, golang',
+			'--dry-run'                        => 'Runs the formatter without atually changing files; returns exit code 1 if changes would have been applied',
+			'--enable_auto_align'              => 'disable auto align of ST_EQUAL and T_DOUBLE_ARROW',
+			'--exclude=pass1,passN,...'        => 'disable specific passes',
+			'--help-pass'                      => 'show specific information for one pass',
 			'--ignore=PATTERN-1,PATTERN-N,...' => 'ignore file names whose names contain any PATTERN-N',
-			'--indent_with_space=SIZE' => 'use spaces instead of tabs for indentation. Default 4',
-			'--lint-before' => 'lint files before pretty printing (PHP must be declared in %PATH%/$PATH)',
-			'--list' => 'list possible transformations',
-			'--list-simple' => 'list possible transformations - greppable',
-			'--no-backup' => 'no backup file (original.php~)',
-			'--passes=pass1,passN,...' => 'call specific compiler pass',
-			'--profile=NAME' => 'use one of profiles present in configuration file',
-			'--psr' => 'activate PSR1 and PSR2 styles',
-			'--psr1' => 'activate PSR1 style',
-			'--psr1-naming' => 'activate PSR1 style - Section 3 and 4.3 - Class and method names case.',
-			'--psr2' => 'activate PSR2 style',
-			'--setters_and_getters=type' => 'analyse classes for attributes and generate setters and getters - camel, snake, golang',
-			'--smart_linebreak_after_curly' => 'convert multistatement blocks into multiline blocks',
-			'--visibility_order' => 'fixes visibiliy order for method in classes - PSR-2 4.2',
-			'--yoda' => 'yoda-style comparisons',
-			'-h, --help' => 'this help message',
-			'-o=file' => 'output the formatted code to "file"',
-			'-o=-' => 'output the formatted code to standard output',
-			'-v' => 'verbose',
+			'--indent_with_space=SIZE'         => 'use spaces instead of tabs for indentation. Default 4',
+			'--lint-before'                    => 'lint files before pretty printing (PHP must be declared in %PATH%/$PATH)',
+			'--list'                           => 'list possible transformations',
+			'--list-simple'                    => 'list possible transformations - greppable',
+			'--no-backup'                      => 'no backup file (original.php~)',
+			'--passes=pass1,passN,...'         => 'call specific compiler pass',
+			'--profile=NAME'                   => 'use one of profiles present in configuration file',
+			'--psr'                            => 'activate PSR1 and PSR2 styles',
+			'--psr1'                           => 'activate PSR1 style',
+			'--psr1-naming'                    => 'activate PSR1 style - Section 3 and 4.3 - Class and method names case.',
+			'--psr2'                           => 'activate PSR2 style',
+			'--setters_and_getters=type'       => 'analyse classes for attributes and generate setters and getters - camel, snake, golang',
+			'--smart_linebreak_after_curly'    => 'convert multistatement blocks into multiline blocks',
+			'--visibility_order'               => 'fixes visibiliy order for method in classes - PSR-2 4.2',
+			'--yoda'                           => 'yoda-style comparisons',
+			'-h, --help'                       => 'this help message',
+			'-o=file'                          => 'output the formatted code to "file"',
+			'-o=-'                             => 'output the formatted code to standard output',
+			'-v'                               => 'verbose',
 		];
 
 		if ( $inPhar ) {
@@ -13122,7 +13149,7 @@ EOT;
 
 			echo 'Usage: ' . $argv[0] . ' [-hv] [-o=FILENAME] [--config=FILENAME] ' . ( $enableCache ? '[--cache[=FILENAME]] ' : '' ) . '[options] <target>', PHP_EOL;
 
-			if ( ! $enableCache ) {
+			if (  ! $enableCache ) {
 				unset( $options['--cache[=FILENAME]'] );
 			}
 
@@ -13175,7 +13202,7 @@ EOT;
 		$opts = getopt(
 			'ihvo:',
 			$getoptLongOptions
-		 );
+		);
 
 		if ( isset( $opts['list'] ) ) {
 			echo 'Usage: ', $argv[0], ' --help-pass=PASSNAME', PHP_EOL;
@@ -13379,7 +13406,7 @@ EOT;
 			$argv = extractFromArgv( $argv, 'indent_with_space' );
 		}
 
-		if ( ( isset( $opts['psr1'] ) || isset( $opts['psr2'] ) || isset( $opts['psr'] ) ) && isset( $opts['enable_auto_align'] ) ) {
+		if (  ( isset( $opts['psr1'] ) || isset( $opts['psr2'] ) || isset( $opts['psr'] ) ) && isset( $opts['enable_auto_align'] ) ) {
 			$fmt->enablePass( 'PSR2AlignObjOp' );
 		}
 
@@ -13575,7 +13602,7 @@ EOT;
 					$progress = new \Symfony\Component\Console\Helper\ProgressBar(
 						new \Symfony\Component\Console\Output\StreamOutput( fopen( 'php://stderr', 'w' ) ),
 						sizeof( iterator_to_array( $files ) )
-					 );
+					);
 					$progress->start();
 					foreach ( $files as $file ) {
 						$progress->advance();
@@ -13592,7 +13619,7 @@ EOT;
 						if ( $concurrent ) {
 							$chn->in( [
 								'target_dir' => $target_dir,
-								'file' => $file,
+								'file'       => $file,
 							] );
 						} else {
 							if ( 0 == ( $fileCount % 20 ) ) {
@@ -13644,7 +13671,7 @@ EOT;
 				} else if (
 					 ! is_file( $arg ) &&
 					( '--' != substr( $arg, 0, 2 ) || $hasFnSeparator )
-				 ) {
+				) {
 					$fileNotFound   = true;
 					$missingFiles[] = $arg;
 					fwrite( STDERR, '!' );
