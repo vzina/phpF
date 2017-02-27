@@ -1,9 +1,27 @@
 <?php
 /**
- * Build phar
+ * Variables
  */
 $srcRoot   = __DIR__ . '/src';
 $buildRoot = __DIR__ . '/build';
+
+/**
+ * Bump version
+ */
+
+if ( ! isset( $argv[1] ) ) {
+	die( 'Provide a version number as argument' . PHP_EOL );
+}
+
+$version = $argv[1];
+
+$file = file_get_contents( $srcRoot . '/phpfmt.php' );
+
+file_put_contents( $srcRoot . '/phpfmt.php', preg_replace( "/define\( 'VERSION'\, '(.*?)' \)\;/", "define( 'VERSION', '$version' );", $file ) );
+
+/**
+ * Build PHAR
+ */
 
 $phar = new Phar( $buildRoot . '/phpfmt.phar',
 	FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::KEY_AS_FILENAME, 'myapp.phar' );
