@@ -1714,7 +1714,7 @@ namespace {
 		protected function leftToken( $ignoreList = [] ) {
 			$i = $this->leftTokenIdx( $ignoreList );
 
-			return $this->tkns[$i];
+			return isset( $this->tkns[$i] ) ? $this->tkns[$i] : null;
 		}
 
 		protected function leftTokenIdx( $ignoreList = [] ) {
