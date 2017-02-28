@@ -8,6 +8,7 @@ class TestRemoveIncludeParentheses extends PHPUnit_Framework_TestCase {
 	private $code = <<<CODE
 <?php
 include ('a.php');
+require ('a.php');
 ?>
 CODE;
 
@@ -20,6 +21,7 @@ CODE;
 		);
 
 		$this->assertContains( "include 'a.php';", $output );
+		$this->assertContains( "require 'a.php';", $output );
 	}
 
 	public function testDisabled() {
@@ -31,6 +33,7 @@ CODE;
 		);
 
 		$this->assertContains( "include ('a.php');", $output );
+		$this->assertContains( "require ('a.php');", $output );
 	}
 
 }
