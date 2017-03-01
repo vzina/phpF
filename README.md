@@ -60,6 +60,7 @@ php phpfmt.phar <arguments>
  * AlignEquals                       Vertically align "=".
  * AlignGroupDoubleArrow             Vertically align T_DOUBLE_ARROW (=>) by line groups.
  * AlignPHPCode                      Align PHP code within HTML block.
+ * AlignPHPCode2                     Align PHP code within opening and closing php block.
  * AlignTypehint                     Vertically align function type hints.
  * AllmanStyleBraces                 Transform all curly braces into Allman-style.
  * AutoPreincrement                  Automatically convert postincrement to preincrement.

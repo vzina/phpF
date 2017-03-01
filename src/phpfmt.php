@@ -1410,7 +1410,7 @@ namespace {
 
 	}
 
-	define( 'VERSION', 'version_code' );
+	define( 'VERSION', '19.7.3' );
 
 	function extractFromArgv( $argv, $item ) {
 		return array_values(
