@@ -6,9 +6,9 @@ The **phpfmt** project was busted and development got stagnated in 2016. This is
 
 **phpfmt** formats PHP code by making it readable and following a specific coding guideline.
 
-## Requires
+## Requirements
 
-* PHP 7.0 or newer
+* PHP 5.6 or newer
 
 ## Usage
 
