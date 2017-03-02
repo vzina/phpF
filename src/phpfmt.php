@@ -6983,7 +6983,7 @@ EOT;
 						list( $id, $text ) = $this->getToken( $token );
 						$this->ptr       = $index;
 
-						if ( T_CONSTANT_ENCAPSED_STRING == $id || T_ENCAPSED_AND_WHITESPACE == $id ) {
+						if ( T_CONSTANT_ENCAPSED_STRING == $id || T_ENCAPSED_AND_WHITESPACE == $id || T_START_HEREDOC == $id ) {
 							$strings[]      = $text;
 							$text           = sprintf( self::PLACEHOLDER_STRING, $this->ptr );
 							$placeholders[] = $text;
@@ -7079,7 +7079,7 @@ EOT;
 						list( $id, $text ) = $this->getToken( $token );
 						$this->ptr       = $index;
 
-						if ( T_CONSTANT_ENCAPSED_STRING == $id || T_ENCAPSED_AND_WHITESPACE == $id ) {
+						if ( T_CONSTANT_ENCAPSED_STRING == $id || T_ENCAPSED_AND_WHITESPACE == $id || T_START_HEREDOC == $id ) {
 							$strings[]      = $text;
 							$text           = sprintf( self::PLACEHOLDER_STRING, $this->ptr );
 							$placeholders[] = $text;

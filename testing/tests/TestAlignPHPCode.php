@@ -12,6 +12,11 @@ require 'foo.php';
 <div>
 <?php
 echo 'foo';
+\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 ?>
 </div>
 CODE;
@@ -31,6 +36,11 @@ CODE;
 <div>
 <?php
 	echo 'foo';
+	\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 ?>
 </div>
 CODE;
@@ -53,6 +63,11 @@ require 'foo.php';
 <div>
 <?php
 echo 'foo';
+\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 ?>
 </div>
 CODE;
