@@ -8,6 +8,8 @@ function executeCommand( $args, $stdin ) {
 	foreach ( $args as $option => $value ) {
 		if ( is_numeric( $option ) ) {
 			$arguments .= ' ' . escapeshellarg( $value );
+		} else if ( $value === true ) {
+			$arguments .= " $option";
 		} else {
 			$arguments .= " $option=" . escapeshellarg( $value );
 		}
