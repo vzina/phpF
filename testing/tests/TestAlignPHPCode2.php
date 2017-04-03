@@ -15,6 +15,11 @@ echo 'foo';
 if ('foo' === 'bar'){
 
 }
+\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 	?>
 </div>
 CODE;
@@ -37,6 +42,11 @@ require 'foo.php';
 	if ('foo' === 'bar') {
 
 	}
+	\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 	?>
 </div>
 CODE;
@@ -62,6 +72,11 @@ echo 'foo';
 if ('foo' === 'bar') {
 
 }
+\$foo = <<<HTML
+<div>
+	<span></span>
+</div>
+HTML;
 ?>
 </div>
 CODE;

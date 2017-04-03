@@ -2,6 +2,10 @@
 
 ## 19.7
 
+### 19.7.4
+
+* Fixed AlignPHPCode heredoc alignment bug
+
 ### 19.7.3
 
 * Added AlignPHPCode2 pass

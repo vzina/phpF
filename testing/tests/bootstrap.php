@@ -1,19 +1,21 @@
 <?php
-$path_to_phpfmt = __DIR__ . '/../../src/phpfmt.php';
+$path_to_phpf = __DIR__ . '/../../src/phpf.php';
 
 function executeCommand( $args, $stdin ) {
-	global $path_to_phpfmt;
+	global $path_to_phpf;
 
 	$arguments = '';
 	foreach ( $args as $option => $value ) {
 		if ( is_numeric( $option ) ) {
 			$arguments .= ' ' . escapeshellarg( $value );
+		} else if ( $value === true ) {
+			$arguments .= " $option";
 		} else {
 			$arguments .= " $option=" . escapeshellarg( $value );
 		}
 	}
 
-	$cmd = sprintf( 'php %s %s -o=- -', $path_to_phpfmt, $arguments );
+	$cmd = sprintf( 'php %s %s -o=- -', $path_to_phpf, $arguments );
 
 	$descriptorspec = array(
 		0 => array( 'pipe', 'r' ), // stdin is a pipe that the child will read from

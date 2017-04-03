@@ -1,19 +1,19 @@
-# phpfmt
+# phpf
 
-The **phpfmt** project was busted and development got stagnated in 2016. This is a fork aimed at continuing the development of **phpfmt**.
+The **phpf** project was busted and development got stagnated in 2016. This is a fork aimed at continuing the development of **phpf**.
 
 ## What Is It ?
 
-**phpfmt** formats PHP code by making it readable and following a specific coding guideline.
+**phpf** formats PHP code by making it readable and following a specific coding guideline.
 
-## Requires
+## Requirements
 
-* PHP 7.0 or newer
+* PHP 5.6 or newer
 
 ## Usage
 
 ```
-php phpfmt.phar <arguments>
+php phpf.phar <arguments>
 ```
 
 ## Arguments
@@ -22,7 +22,7 @@ php phpfmt.phar <arguments>
 | -------- | ----------- |
 | --cache[=FILENAME] | cache file. Default: .php.tools.cache |
 | --cakephp | Apply CakePHP coding style |
-| --config=FILENAME | configuration file. Default: .phpfmt.ini |
+| --config=FILENAME | configuration file. Default: .phpf.ini |
 | --constructor=type | analyse classes for attributes and generate constructor - camel, snake, golang |
 | --dry-run | Runs the formatter without atually changing files; returns exit code 1 if changes would have been applied |
 | --enable_auto_align | disable auto align of ST_EQUAL and T_DOUBLE_ARROW |
