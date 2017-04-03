@@ -1,5 +1,5 @@
 <?php namespace { $inPhar = true;}
-# Copyright (c) 2015, phpfmt and its authors
+# Copyright (c) phpF and its authors
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -1467,13 +1467,13 @@ namespace {
 		$opts = [
 			'http' => [
 				'method' => 'GET',
-				'header' => "User-agent: phpfmt fmt.phar selfupdate\r\n",
+				'header' => "User-agent: phpf fmt.phar selfupdate\r\n",
 			],
 		];
 
 		$context = stream_context_create( $opts );
 
-		$releases = json_decode( file_get_contents( 'https://api.github.com/repos/phpfmt/fmt/tags', false, $context ), true );
+		$releases = json_decode( file_get_contents( 'https://api.github.com/repos/phpf/fmt/tags', false, $context ), true );
 		$commit   = json_decode( file_get_contents( $releases[0]['commit']['url'], false, $context ), true );
 		$files    = json_decode( file_get_contents( $commit['commit']['tree']['url'], false, $context ), true );
 		foreach ( $files['tree'] as $file ) {
@@ -13198,7 +13198,7 @@ EOT;
 		$options = [
 			'--cache[=FILENAME]'               => 'cache file. Default: ',
 			'--cakephp'                        => 'Apply CakePHP coding style',
-			'--config=FILENAME'                => 'configuration file. Default: .phpfmt.ini',
+			'--config=FILENAME'                => 'configuration file. Default: .phpf.ini',
 			'--constructor=type'               => 'analyse classes for attributes and generate constructor - camel, snake, golang',
 			'--dry-run'                        => 'Runs the formatter without atually changing files; returns exit code 1 if changes would have been applied',
 			'--enable_auto_align'              => 'disable auto align of ST_EQUAL and T_DOUBLE_ARROW',
@@ -13338,12 +13338,12 @@ EOT;
 			$argv = extractFromArgv( $argv, 'config' );
 
 			if ( 'scan' == $opts['config'] ) {
-				$cfgfn     = getcwd() . DIRECTORY_SEPARATOR . '.phpfmt.ini';
+				$cfgfn     = getcwd() . DIRECTORY_SEPARATOR . '.phpf.ini';
 				$lastcfgfn = '';
 				fwrite( STDERR, 'Scanning for configuration file...' );
 				while (  ! is_file( $cfgfn ) && $lastcfgfn != $cfgfn ) {
 					$lastcfgfn = $cfgfn;
-					$cfgfn     = dirname( dirname( $cfgfn ) ) . DIRECTORY_SEPARATOR . '.phpfmt.ini';
+					$cfgfn     = dirname( dirname( $cfgfn ) ) . DIRECTORY_SEPARATOR . '.phpf.ini';
 				}
 				$opts['config'] = $cfgfn;
 				if ( file_exists( $opts['config'] ) && is_file( $opts['config'] ) ) {
@@ -13364,9 +13364,9 @@ EOT;
 					$opts += $iniOpts;
 				}
 			}
-		} else if ( file_exists( getcwd() . DIRECTORY_SEPARATOR . '.phpfmt.ini' ) && is_file( getcwd() . DIRECTORY_SEPARATOR . '.phpfmt.ini' ) ) {
+		} else if ( file_exists( getcwd() . DIRECTORY_SEPARATOR . '.phpf.ini' ) && is_file( getcwd() . DIRECTORY_SEPARATOR . '.phpf.ini' ) ) {
 			fwrite( STDERR, 'Configuration file found' . PHP_EOL );
-			$iniOpts = parse_ini_file( getcwd() . DIRECTORY_SEPARATOR . '.phpfmt.ini', true );
+			$iniOpts = parse_ini_file( getcwd() . DIRECTORY_SEPARATOR . '.phpf.ini', true );
 			if ( isset( $opts['profile'] ) ) {
 				$argv    = extractFromArgv( $argv, 'profile' );
 				$profile = &$iniOpts[$opts['profile']];
