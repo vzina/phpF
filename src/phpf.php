@@ -1410,7 +1410,7 @@ namespace {
 
 	}
 
-	define( 'VERSION', 'version_code' );
+	define( 'VERSION', '19.7.4' );
 
 	function extractFromArgv( $argv, $item ) {
 		return array_values(
@@ -11620,26 +11620,6 @@ EOT;
 					$this->printUntil( T_END_HEREDOC );
 					break;
 				case T_CONSTANT_ENCAPSED_STRING:
-					$this->appendCode( $text );
-					break;
-				case T_COMMENT:
-					$isComment = false;
-					if (
-						 ! $this->leftUsefulTokenIs( [T_OPEN_TAG] ) &&
-						$this->rightTokenIs( [
-							T_IF,
-							T_DO,
-							T_FOR,
-							T_FOREACH,
-							T_SWITCH,
-							T_WHILE,
-							T_COMMENT,
-							T_DOC_COMMENT,
-						] )
-					) {
-						$this->appendCode( $this->newLine );
-						$isComment = true;
-					}
 					$this->appendCode( $text );
 					break;
 				case T_IF:
