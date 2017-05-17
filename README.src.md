@@ -1,5 +1,7 @@
 # phpf
 
+[![Build Status](https://travis-ci.org/subins2000/phpF.svg?branch=master)](https://travis-ci.org/subins2000/phpF)
+
 The **phpf** project was busted and development got stagnated in 2016. This is a fork aimed at continuing the development of **phpf**.
 
 ## What Is It ?
