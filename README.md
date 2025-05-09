@@ -1,9 +1,5 @@
 # phpF
 
-## Project Abandoned
-
-This project has been abandoned due to lack of interest. [You may use other forks of this](https://github.com/subins2000/phpF/network).
-
 [![Build Status](https://travis-ci.org/subins2000/phpF.svg?branch=master)](https://travis-ci.org/subins2000/phpF)
 
 **phpF** formats PHP code by making it readable and helps your code to follow coding guidelines.
